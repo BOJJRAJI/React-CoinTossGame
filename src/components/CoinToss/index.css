@@ -1,0 +1,72 @@
+.bg-container {
+  background-image: linear-gradient(to right, #e2a139, #f9d423);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+.heading {
+  font-family: 'Roboto';
+  font-size: 30px;
+  color: #a35200;
+  font-weight: 600;
+}
+.para {
+  font-family: 'Roboto';
+  font-size: 15px;
+  color: #334155;
+}
+.image {
+  height: 200px;
+  width: 100px;
+}
+.button {
+  border-width: 0px;
+  background-color: #e2a139;
+  color: #a35200;
+  font-family: 'Roboto';
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 7px;
+}
+.result-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+.result {
+  font-family: 'Roboto';
+  font-size: 17px;
+  color: #475569;
+  margin-right: 10px;
+}
+@media screen and (max-width: 576px) {
+  .result-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 70%;
+  }
+  .result {
+    margin-right: 0px;
+  }
+  .bg-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+}
