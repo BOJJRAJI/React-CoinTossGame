@@ -1,48 +1,41 @@
 import {Component} from 'react'
-
 import './index.css'
 
-const headsImage = {
-  image: 'https://assets.ccbp.in/frontend/react-js/heads-img.png',
-  alt: 'head',
-}
-const tailsImage = {
-  image: 'https://assets.ccbp.in/frontend/react-js/tails-img.png',
-  alt: 'tail',
-}
-
 class CoinToss extends Component {
-  state = {heads: 0, tails: 0, imageDetails: headsImage}
+  state = {tails: 0, heads: 0, headsOrTails: 0}
 
-  tossTheCoin = () => {
+  tossCoin = () => {
     const tossResult = Math.floor(Math.random() * 2)
     if (tossResult === 0) {
       this.setState(prevState => ({
         heads: prevState.heads + 1,
-        imageDetails: headsImage,
+        headsOrTails: tossResult,
       }))
     } else {
       this.setState(prevState => ({
         tails: prevState.tails + 1,
-        imageDetails: tailsImage,
+        headsOrTails: tossResult,
       }))
     }
   }
 
   render() {
-    const {heads, tails, imageDetails} = this.state
-    const total = heads + tails
+    const {tails, heads, headsOrTails} = this.state
+    const url =
+      headsOrTails === 0
+        ? 'https://assets.ccbp.in/frontend/react-js/heads-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/tails-img.png'
     return (
       <div className="bg-container">
         <div className="card">
           <h1 className="heading">Coin Toss Game</h1>
           <p className="para">Heads (or) Tails</p>
-          <img src={imageDetails.image} alt="toss result" className="image" />
-          <button className="button" type="button" onClick={this.tossTheCoin}>
+          <img alt="toss result" src={url} className="image" />
+          <button type="button" className="button" onClick={this.tossCoin}>
             Toss Coin
           </button>
-          <div className="result-container">
-            <p className="result">Total: {total}</p>
+          <div className="results-container">
+            <p className="result">Total: {tails + heads}</p>
             <p className="result">Heads: {heads}</p>
             <p className="result">Tails: {tails}</p>
           </div>
